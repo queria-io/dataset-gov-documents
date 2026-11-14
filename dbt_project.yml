@@ -1,0 +1,16 @@
+name: "gov_documents"
+version: "1.0.0"
+
+profile: "gov_documents"
+
+model-paths: ["models"]
+macro-paths: ["shared/macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  gov_documents:
+    +database: gov_documents
+    +materialized: table

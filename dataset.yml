@@ -1,0 +1,51 @@
+# この dataset.yml は fdl commit が読む（FDL の dataset.json を YAML で書いたもの）。
+# 表の説明は models/ の *.table.yml に書く。表と列の型・NULL・行数は fdl commit がカタログから埋める。
+name: gov_documents
+title: 府省の文書の全文検索
+description: |-
+  府省のデータセットが持つ文書（PDF）のページを 1 つにまとめ、2 文字ずつ区切った索引で全文検索できるようにしたデータセットです。今は国土交通白書と、行政事業レビューのシートが「関係する計画・通知等」に挙げる国土交通省・厚生労働省・文部科学省・内閣府・農林水産省のサイトの PDF を収録しています。各ページは PDF の URL とページ番号を持ち、元の文書の該当ページを開けます。
+
+  出典：国土交通省・厚生労働省・文部科学省・内閣府・農林水産省のウェブサイトの各資料、行政事業レビュー見える化サイト（行政改革推進本部事務局）。Queria が加工したものです。
+keywords:
+  - 全文検索
+  - 行政文書
+  - 計画
+  - 通知
+  - 白書
+  - 行政事業レビュー
+  - 根拠文書
+homepage: https://github.com/queria-io/dataset-gov-documents
+language: ja
+
+licenses:
+  - JP-PDL-1.0
+
+sources:
+  - title: 行政事業レビュー見える化サイト（行政改革推進本部事務局）
+    path: https://rssystem.go.jp
+  - title: 国土交通白書（国土交通省）
+    path: https://www.mlit.go.jp/statistics/file000004.html
+
+contributors:
+  - title: 国土交通省
+    path: https://www.mlit.go.jp/
+    roles: [rightsHolder]
+  - title: 厚生労働省
+    path: https://www.mhlw.go.jp/
+    roles: [rightsHolder]
+  - title: 文部科学省
+    path: https://www.mext.go.jp/
+    roles: [rightsHolder]
+  - title: 内閣府
+    path: https://www.cao.go.jp/
+    roles: [rightsHolder]
+  - title: 農林水産省
+    path: https://www.maff.go.jp/
+    roles: [rightsHolder]
+
+spatial_coverage: [JP]
+update_frequency: monthly
+
+schemas:
+  - name: search
+    title: 全文検索

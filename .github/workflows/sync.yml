@@ -1,0 +1,27 @@
+name: Sync
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "*.md"
+  schedule:
+    # 毎月 15 日 05:00 JST に元データセットの更新を取り込む（府省のデータセットの月次の更新の後）
+    - cron: "0 20 14 * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    # Queria への書き込みは GitHub Actions の OIDC で 1 時間のトークンを取って行う
+    permissions:
+      contents: read
+      id-token: write
+    uses: queria-io/dataset-shared/.github/workflows/sync.yml@65a70f0ea45bbaebbf9adc0cedd61500ebe242e7
+    with:
+      dataset_name: gov_documents
+    secrets:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
