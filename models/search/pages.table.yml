@@ -1,0 +1,30 @@
+schema: search
+name: pages
+title: 文書のページ
+description: |-
+  search.documents の PDF の本文をページごとにまとめたテーブルです。1 行が 1 つの PDF の 1 ページです。同じ中身の PDF は 1 回だけ持ちます。
+
+  - text は各府省のデータセットが PDF から取り出して NFKC で正規化した本文です。段組みや図の中の文字は、読む順になっていないことがあります
+  - chars は空白と改行を除いた文字数で、BM25 の文書の長さに使います
+  - page_id は search.page_bigrams がページを指す番号です。ビルドのたびに振り直すので、ほかのデータセットからは sha256 と page で指してください
+  - page_url で PDF の該当ページを開けます
+primary_key: [sha256, page]
+fields:
+  - name: page_id
+    title: ページの番号
+    description: search.page_bigrams がページを指す番号。ビルドのたびに振り直す
+  - name: sha256
+    title: PDF の sha256
+  - name: page
+    title: ページ
+    description: PDF の 1 始まりのページ番号
+  - name: page_label
+    title: ページラベル
+    description: PDF に付いている印刷上のページ番号
+  - name: text
+    title: 本文
+  - name: chars
+    title: 文字数
+    description: 空白と改行を除いた本文の文字数
+  - name: page_url
+    title: ページの URL

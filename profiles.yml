@@ -1,0 +1,47 @@
+gov_documents:
+  target: default
+  outputs:
+    default:
+      type: duckdb
+      path: ":memory:"
+      database: gov_documents
+      schema: main
+      threads: 1
+      extensions:
+        - httpfs
+        - ducklake
+      # ビルドが公開ストレージを読むときの名乗り。shared/scripts/build-fdl.sh が queria-build として渡す
+      config_options:
+        custom_user_agent: "{{ env_var('QUERIA_USER_AGENT', '') }}"
+      # fdl checkout が作った作業場のカタログ (SQLite) に書く (shared/scripts/build-fdl.sh)
+      attach:
+        - path: "ducklake:{{ env_var('FDL_WORKING') }}"
+          alias: gov_documents
+          is_ducklake: true
+          options:
+            DATA_PATH: "{{ env_var('FDL_DATA_PATH') }}"
+            OVERRIDE_DATA_PATH: true
+            META_TYPE: "'sqlite'"
+            # fdl commit はインライン化された行を断るので、常に切る
+            DATA_INLINING_ROW_LIMIT: 0
+        # 文書のページを持つ府省のデータセット。読むだけ
+        - path: "ducklake:https://data.queria.io/datasets/queria/mlit/ducklake.duckdb"
+          alias: mlit
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/mhlw/ducklake.duckdb"
+          alias: mhlw
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/mext/ducklake.duckdb"
+          alias: mext
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/cao/ducklake.duckdb"
+          alias: cao
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/maff/ducklake.duckdb"
+          alias: maff
+          is_ducklake: true
+          read_only: true
