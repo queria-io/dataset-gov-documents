@@ -12,10 +12,17 @@ WITH all_pages AS (
     SELECT sha256, page, page_label, text FROM maff.plans.pages
     UNION ALL
     SELECT sha256, page, page_label, text FROM mlit.plans.pages
+    UNION ALL
+    SELECT sha256, page, page_label, text FROM cas.plans.pages
+    UNION ALL
+    SELECT sha256, page, page_label, text FROM env.plans.pages
+    UNION ALL
+    SELECT sha256, page, page_label, text FROM soumu.plans.pages
 ),
 
 first_url AS (
-    SELECT sha256, min(url) AS url
+    -- 移転した文書は、シートの URL ではなく取得した URL（移転先）でページを開く
+    SELECT sha256, min(fetched_url) AS url
     FROM {{ ref('documents') }}
     GROUP BY sha256
 )

@@ -45,3 +45,15 @@ gov_documents:
           alias: maff
           is_ducklake: true
           read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/cas/ducklake.duckdb"
+          alias: cas
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/env/ducklake.duckdb"
+          alias: env
+          is_ducklake: true
+          read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/soumu/ducklake.duckdb"
+          alias: soumu
+          is_ducklake: true
+          read_only: true
