@@ -4,7 +4,7 @@ title: 文書
 description: |-
   府省のデータセットが持つ文書（PDF）の一覧です。1 行が 1 つのデータセットの 1 つの URL です。
 
-  - dataset は文書を持つ Queria のデータセット（mlit・mhlw・mext・cao・maff・cas・env・soumu）、kind はそのデータセットの中の種類です。white_paper は国土交通白書、plans は行政事業レビューのシートが「関係する計画・通知等」に挙げる PDF です
+  - dataset は文書を持つ Queria のデータセット（mlit・mhlw・mext・cao・maff・cas・env・soumu・meti）、kind はそのデータセットの中の種類です。white_paper は国土交通白書、plans は行政事業レビューのシートが「関係する計画・通知等」に挙げる PDF です
   - sha256 は PDF の中身の sha256 で、search.pages はこの値で文書を指します。同じ中身の PDF が別の URL で載っていると、sha256 が同じ行が複数あります
   - 行政事業レビューの事業と結び付けるときは、queria/rssystem の review.related_plans の plan_url と url を結合します
   - fetched_url は PDF を取得した URL です。移転したページ（首相官邸のサイトから内閣官房のサイトに移った会議の資料など）では url と異なります

@@ -18,6 +18,8 @@ WITH all_pages AS (
     SELECT sha256, page, page_label, text FROM env.plans.pages
     UNION ALL
     SELECT sha256, page, page_label, text FROM soumu.plans.pages
+    UNION ALL
+    SELECT sha256, page, page_label, text FROM meti.plans.pages
 ),
 
 first_url AS (

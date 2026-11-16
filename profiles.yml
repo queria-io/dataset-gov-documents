@@ -57,3 +57,7 @@ gov_documents:
           alias: soumu
           is_ducklake: true
           read_only: true
+        - path: "ducklake:https://data.queria.io/datasets/queria/meti/ducklake.duckdb"
+          alias: meti
+          is_ducklake: true
+          read_only: true

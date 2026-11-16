@@ -7,7 +7,7 @@
 | データセット | 種類（`kind`） | 内容 |
 | --- | --- | --- |
 | `mlit` | `white_paper` | 国土交通白書（令和3年版から） |
-| `mlit`・`mhlw`・`mext`・`cao`・`maff`・`cas`・`env`・`soumu` | `plans` | 行政事業レビューのシートが「関係する計画・通知等」に挙げる、その府省のサイトの PDF |
+| `mlit`・`mhlw`・`mext`・`cao`・`maff`・`cas`・`env`・`soumu`・`meti` | `plans` | 行政事業レビューのシートが「関係する計画・通知等」に挙げる、その府省のサイトの PDF |
 
 ページの本文の取り出し（文字化けの修正を含む）は、元の府省のデータセットで行っています。このデータセットはそれをまとめて索引を作るだけで、文書を取得しません。
 
@@ -49,7 +49,7 @@ LIMIT 5;
 
 ## 出典と利用条件
 
-- 各文書は、国土交通省・厚生労働省・文部科学省・内閣府・農林水産省・内閣官房・環境省・総務省のウェブサイトのコンテンツです。各府省のウェブサイトの利用規約（公共データ利用規約 第1.0版 などの政府標準利用規約）に従います。使うときは、文書ごとに出典と加工したことを書いてください
+- 各文書は、国土交通省・厚生労働省・文部科学省・内閣府・農林水産省・内閣官房・環境省・総務省・経済産業省のウェブサイトのコンテンツです。各府省のウェブサイトの利用規約（公共データ利用規約 第1.0版 などの政府標準利用規約）に従います。使うときは、文書ごとに出典と加工したことを書いてください
 - 図表には府省以外の著作物が含まれることがあります。このデータセットは本文の文字だけを持ち、PDF の原本は保存していません
 
 ## ビルド
@@ -60,4 +60,4 @@ uv sync
 bash scripts/build.sh
 ```
 
-dbt build が、`queria/mlit`・`queria/mhlw`・`queria/mext`・`queria/cao`・`queria/maff`・`queria/cas`・`queria/env`・`queria/soumu` の公開データを読んでテーブルを作り直します。GitHub Actions の Sync は main への push と毎月 15 日に動きます。
+dbt build が、`queria/mlit`・`queria/mhlw`・`queria/mext`・`queria/cao`・`queria/maff`・`queria/cas`・`queria/env`・`queria/soumu`・`queria/meti` の公開データを読んでテーブルを作り直します。GitHub Actions の Sync は main への push と毎月 15 日に動きます。

@@ -10,6 +10,7 @@
     ('cas', '内閣官房', true),
     ('env', '環境省', false),
     ('soumu', '総務省', false),
+    ('meti', '経済産業省', true),
 ] %}
 
 SELECT
