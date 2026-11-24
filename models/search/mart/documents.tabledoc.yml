@@ -1,5 +1,4 @@
-schema: search
-name: documents
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 title: 文書
 description: |-
   府省のデータセットが持つ文書（PDF）の一覧です。1 行が 1 つのデータセットの 1 つの URL です。
@@ -8,8 +7,11 @@ description: |-
   - sha256 は PDF の中身の sha256 で、search.pages はこの値で文書を指します。同じ中身の PDF が別の URL で載っていると、sha256 が同じ行が複数あります
   - 行政事業レビューの事業と結び付けるときは、queria/rssystem の review.related_plans の plan_url と url を結合します
   - fetched_url は PDF を取得した URL です。移転したページ（首相官邸のサイトから内閣官房のサイトに移った会議の資料など）では url と異なります
-primary_key: [dataset, kind, url]
-fields:
+primary_key:
+  - dataset
+  - kind
+  - url
+columns:
   - name: dataset
     title: データセット
   - name: publisher

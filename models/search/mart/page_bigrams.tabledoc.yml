@@ -1,5 +1,4 @@
-schema: search
-name: page_bigrams
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 title: 文書のページの 2-gram
 description: |-
   search.pages の本文から空白と改行を除き、2 文字ずつ区切った文字列（2-gram）とページごとの出現回数です。全文検索の索引に使います。
@@ -7,8 +6,10 @@ description: |-
   - 検索語を同じように 2 文字ずつ区切り、すべての 2-gram を含むページを探すと、その語を含む可能性のあるページが分かります。最後は search.pages の text で語そのものを含むかを確認してください
   - tf と search.pages の chars から BM25 などで順位を付けられます
   - gram の順に並んでいるので、gram で絞り込むと読む範囲が小さくなります
-primary_key: [page_id, gram]
-fields:
+primary_key:
+  - page_id
+  - gram
+columns:
   - name: page_id
     title: ページの番号
     description: search.pages の page_id

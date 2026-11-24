@@ -1,0 +1,77 @@
+$schema: https://tabledoc.queria.io/schemas/dataset/v1.json
+name: gov_documents
+title: 府省の文書の全文検索
+description: |-
+  府省のデータセットが持つ文書（PDF）のページを 1 つにまとめ、2 文字ずつ区切った索引で全文検索できるようにしたデータセットです。今は国土交通白書と、行政事業レビューのシートが「関係する計画・通知等」に挙げる国土交通省・厚生労働省・文部科学省・内閣府・農林水産省・内閣官房・環境省・総務省・経済産業省のサイトの PDF を収録しています。各ページは PDF の URL とページ番号を持ち、元の文書の該当ページを開けます。
+
+  出典：国土交通省・厚生労働省・文部科学省・内閣府・農林水産省・内閣官房・環境省・総務省・経済産業省のウェブサイトの各資料、行政事業レビュー見える化サイト（行政改革推進本部事務局）。Queria が加工したものです。
+topics:
+  - 全文検索
+  - 行政文書
+  - 計画
+  - 通知
+  - 白書
+  - 行政事業レビュー
+  - 根拠文書
+language: ja
+licenses:
+  - JP-PDL-1.0
+sources:
+  - id: rssystem
+    title: 行政事業レビュー見える化サイト（行政改革推進本部事務局）
+    url: https://rssystem.go.jp
+  - id: file000004
+    title: 国土交通白書（国土交通省）
+    url: https://www.mlit.go.jp/statistics/file000004.html
+contributors:
+  - id: mlit
+    title: 国土交通省
+    url: https://www.mlit.go.jp/
+    roles:
+      - rightsHolder
+  - id: mhlw
+    title: 厚生労働省
+    url: https://www.mhlw.go.jp/
+    roles:
+      - rightsHolder
+  - id: mext
+    title: 文部科学省
+    url: https://www.mext.go.jp/
+    roles:
+      - rightsHolder
+  - id: cao
+    title: 内閣府
+    url: https://www.cao.go.jp/
+    roles:
+      - rightsHolder
+  - id: maff
+    title: 農林水産省
+    url: https://www.maff.go.jp/
+    roles:
+      - rightsHolder
+  - id: cas
+    title: 内閣官房
+    url: https://www.cas.go.jp/
+    roles:
+      - rightsHolder
+  - id: env
+    title: 環境省
+    url: https://www.env.go.jp/
+    roles:
+      - rightsHolder
+  - id: soumu
+    title: 総務省
+    url: https://www.soumu.go.jp/
+    roles:
+      - rightsHolder
+  - id: meti
+    title: 経済産業省
+    url: https://www.meti.go.jp/
+    roles:
+      - rightsHolder
+spatial_coverage:
+  - JP
+update_frequency: monthly
+schemas:
+  - name: search
+    title: 全文検索

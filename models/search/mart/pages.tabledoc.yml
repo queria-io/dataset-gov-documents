@@ -1,5 +1,4 @@
-schema: search
-name: pages
+$schema: https://tabledoc.queria.io/schemas/table/v1.json
 title: 文書のページ
 description: |-
   search.documents の PDF の本文をページごとにまとめたテーブルです。1 行が 1 つの PDF の 1 ページです。同じ中身の PDF は 1 回だけ持ちます。
@@ -8,8 +7,10 @@ description: |-
   - chars は空白と改行を除いた文字数で、BM25 の文書の長さに使います
   - page_id は search.page_bigrams がページを指す番号です。ビルドのたびに振り直すので、ほかのデータセットからは sha256 と page で指してください
   - page_url で PDF の該当ページを開けます
-primary_key: [sha256, page]
-fields:
+primary_key:
+  - sha256
+  - page
+columns:
   - name: page_id
     title: ページの番号
     description: search.page_bigrams がページを指す番号。ビルドのたびに振り直す
